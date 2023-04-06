@@ -122,4 +122,6 @@ class AuthController extends Controller
         //Devolvemos los datos del usuario si todo va bien. 
         return response()->json(['user' => $user]);
     }
+
+    
 }

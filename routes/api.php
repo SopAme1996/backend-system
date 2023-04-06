@@ -22,14 +22,15 @@ Route::prefix('v1')->group(function () {
         //Todo lo que este dentro de este grupo requiere verificación de usuario.
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('get-user', [AuthController::class, 'getUser']);
+
+        Route::prefix('money')->group(function () {
+            Route::get('/', [MoneyController::class, 'index']);
+            Route::get('/{id}', [MoneyController::class, 'show']);
+            Route::post('store', [MoneyController::class, 'store']);
+            Route::get('/edit/{id}', [MoneyController::class, 'edit']);
+            Route::put('/{id}', [MoneyController::class, 'update']);
+            Route::delete('/{id}', [MoneyController::class, 'destroy']);
     });
 });
 
-Route::prefix('money')->group(function () {
-    Route::get('/', [MoneyController::class, 'index']);
-    Route::get('/{id}', [MoneyController::class, 'show']);
-    Route::post('store', [MoneyController::class, 'store']);
-    Route::get('/edit/{id}', [MoneyController::class, 'edit']);
-    Route::put('/{id}', [MoneyController::class, 'update']);
-    Route::delete('/{id}', [MoneyController::class, 'destroy']);
 });

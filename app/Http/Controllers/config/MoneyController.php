@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\config;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\V1\AuthController;
 use App\Models\config\CONF_MONEY;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class MoneyController extends Controller
     //
     public function index(Request $request)
     {
+      
         $money = new CONF_MONEY();
         $money = $money->monies();
 
