@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\config\MoneyController;
 use App\Http\Controllers\V1\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,13 @@ Route::prefix('v1')->group(function () {
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('get-user', [AuthController::class, 'getUser']);
     });
+});
+
+Route::prefix('money')->group(function () {
+    Route::get('/', [MoneyController::class, 'index']);
+    Route::get('/{id}', [MoneyController::class, 'show']);
+    Route::post('store', [MoneyController::class, 'store']);
+    Route::get('/edit/{id}', [MoneyController::class, 'edit']);
+    Route::put('/{id}', [MoneyController::class, 'update']);
+    Route::delete('/{id}', [MoneyController::class, 'destroy']);
 });

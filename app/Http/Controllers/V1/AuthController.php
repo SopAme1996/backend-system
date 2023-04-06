@@ -67,6 +67,7 @@ class AuthController extends Controller
                 ], 401);
             }
         } catch (JWTException $e) {
+            dd($e);
             //Error chungo
             return response()->json([
                 'message' => 'Error',
